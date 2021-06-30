@@ -14,9 +14,7 @@ describe('basic login/create user features work',()=>{
         cy.contains("Sign in").click()
         cy.url().should('include','/login')
         cy.contains("button","Sign in").should("exist")
-        cy.contains("button","Sign in").should("exist")
     
-        // cy.contains("Forgot Password?").should("exist")
      })
 
      it('Path to Join now Page works',()=>{
@@ -24,5 +22,14 @@ describe('basic login/create user features work',()=>{
         cy.url().should('include','/signup')
         cy.contains("button","Agree & Join").should("exist")
         cy.contains("button","Join with Google").should("exist")
+     })
+
+
+     it('Path to Rest Password Works',()=>{
+        cy.contains("Sign in").click()
+        cy.url().should('include','/login')
+        cy.contains("button","Sign in").should("exist")
+        cy.contains("password").click()
+        cy.url().should('include','/')
      })
 })
